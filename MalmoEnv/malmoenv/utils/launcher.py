@@ -25,13 +25,14 @@ import time
  # This script captures the Minecraft output into file called out.txt
 DEFAULT_SCRIPT = "./launchClient_quiet.sh"
 
-def launch_minecraft(ports, launch_script=DEFAULT_SCRIPT, keep_alive=False):
+def launch_minecraft(ports, launch_script=DEFAULT_SCRIPT, keep_alive=False, verbose=False):
     """
     Launch Minecraft instances in the background.
     Function will block until all instances are ready to receive commands.
     ports - List of ports you want the instances to listen on for commands
     launch_script - Script to launch Minecraft. Default is ./launchClient_quiet.sh
     keep_alive - Automatically restart Minecraft instances if they exit
+    verbose - If true - then prints into console otherwise uses the subprocess' to output
     """
     ports_collection = ports
     if not isinstance(ports_collection, Iterable):
@@ -47,9 +48,10 @@ def launch_minecraft(ports, launch_script=DEFAULT_SCRIPT, keep_alive=False):
         if keep_alive:
             args.append("--keepalive")
 
-        proc = subprocess.Popen(args,
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE
-        )
+        if verbose:
+            proc = subprocess.Popen(args)
+        else:
+            proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         minecraft_instances.append(proc)
 
     await_instances([
@@ -118,7 +120,7 @@ def _launch_minecraft_direct(launch_script, port, keep_alive):
     # Make a copy of Minecraft into a unique temp directory as it's not possible to run multiple
     # instances from a single Minecraft directory
     target_dir = tempfile.mkdtemp(prefix="malmo_") + "/malmo"
-    source_dir = str(pathlib.Path(__file__).parent.absolute()) + "/../.."
+    source_dir = str(pathlib.Path(__file__).parent.absolute()) + "/../../.."
     print(f"Cloning {source_dir} into {target_dir}...")
     shutil.copytree(source_dir, target_dir)
 
@@ -132,6 +134,10 @@ def _launch_minecraft_direct(launch_script, port, keep_alive):
         spawn = keep_alive
 
     print(f"Exit code: {rc}")
+    print("File content: ")
+    with open(target_dir + "/out.txt", 'r') as file:
+        for line in file.readlines():
+            print(line)
 
 if __name__ == '__main__':
     args = _parse_args()
