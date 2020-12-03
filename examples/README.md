@@ -24,7 +24,7 @@ We also provided non-notebook versions of these guides, which contain less expla
 If you have any issues with running Malmo check the [FAQ](FAQ.md) as it might cover the issues.
 
 ## Baseline results
-Single-agent PPO
+**Single-agent PPO**
 
 We trained PPO in single and multi-agent setups on the Mob chases tasks. The tensorboard learning curves are shown below from a run of 1 million agent-env interactions. The checkpoint is available in the ```examples/checkpoints/``` package.
 ![Single Agent PPO learning curves](imgs/PPO_single_agent_mobchase.png)

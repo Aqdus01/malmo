@@ -1,0 +1,7 @@
+{
+  "env": "malmo",
+  "ignore_worker_failures": true,
+  "lr": 5e-05,
+  "num_gpus": 1,
+  "num_workers": 6
+}
