@@ -29,10 +29,10 @@ def create_env(config):
 
 
 if __name__ == "__main__":
-    checkpoint_file = "/home/mballa/data/PPO/PPO_malmo_5ef58_00000_0_2020-11-15_00-34-50/checkpoint_80/checkpoint-80"
+    checkpoint_file = "checkpoints/PPO_malmo_single_agent/checkpoint_209/checkpoint-209"
     update_checkpoint_for_rollout(checkpoint_file)
     parser = argparse.ArgumentParser(description='malmoenv arguments')
-    parser.add_argument('--mission', type=str, default='missions/mobchase_single_agent.xml',
+    parser.add_argument('--mission', type=str, default='../MalmoEnv/missions/mobchase_single_agent.xml',
                         help='the mission xml')
     parser.add_argument('--port', type=int, default=8999, help='the first mission server port')
     parser.add_argument('--server', type=str, default='127.0.0.1', help='the mission server DNS or IP address')
