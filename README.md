@@ -37,11 +37,13 @@ We also provided non-notebook versions of these guides, which contain less expla
 **PPO Single-agent mobchase**
 
 We trained PPO in single and multi-agent setups on the Mob chases tasks. The tensorboard learning curves are shown below from a run of 1 million agent-env interactions. The checkpoint is available in the ```examples/checkpoints/``` package.
-![Single Agent PPO learning curves](imgs/PPO_single_agent_mobchase.png)
+![Single Agent PPO learning curves](examples/imgs/PPO_single_agent_mobchase.png)
 
-![Evaluation](imgs/PPO_single_agent_mobchase.gif)
+![Evaluation](examples/imgs/PPO_single_agent_mobchase.gif)
 
 **PPO Multi-agent mobchase**
+The multi-agent setup has been trained for a bit over 100k time steps per agent with shared parameters. A checkpoint from the 20th PPO iteration can be found in ```examples/checkpoints``` including the training stats from RLlib. The learning curves from this run are shown on the figure below:
+![Multi-Agent PPO learning curves](examples/imgs/PPO_multi_agent_mobchase.png)
 
 ----
 
