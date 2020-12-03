@@ -12,8 +12,6 @@ from malmoenv.utils.wrappers import DownsampleObs
 import ray
 from ray.tune import register_env
 
-import tensorflow as tf
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='malmoenv arguments')
     parser.add_argument('--mission', type=str, default='missions/mobchase_single_agent.xml',
@@ -32,10 +30,6 @@ if __name__ == "__main__":
                         help="Number of algorithm iterations to perform on the environment")
 
     args = parser.parse_args()
-
-    print(f"visible GPUs in TF = {tf.config.experimental.list_physical_devices('GPU')}")
-    ray.init(num_gpus=args.num_gpus)
-    print(f"Visible GPUs in ray = {ray.get_gpu_ids()}")
 
     ENV_NAME = "malmo"
     MISSION_XML = os.path.realpath(args.mission)

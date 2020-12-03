@@ -12,8 +12,6 @@ from malmoenv.turnbasedmultiagentenv import AgentConfig, TurnBasedRllibMultiAgen
 import ray
 from ray.tune import register_env
 
-import tensorflow as tf
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='malmoenv arguments')
     parser.add_argument('--mission', type=str, default='missions/mobchase_two_agents.xml',
@@ -30,10 +28,6 @@ if __name__ == "__main__":
     parser.add_argument('--iterations', type=int, default=1000,
                         help="Number of algorithm iterations to perform on the environmet")
     args = parser.parse_args()
-
-    print(f"visible GPUs in TF = {tf.config.experimental.list_physical_devices('GPU')}")
-    ray.init(num_gpus=args.num_gpus)
-    print(f"Visible GPUs in ray = {ray.get_gpu_ids()}")
 
     MULTI_AGENT_ENV = "malmo_multi_agent"
     MISSION_XML = os.path.realpath(args.mission)

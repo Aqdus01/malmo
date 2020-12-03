@@ -1,5 +1,9 @@
 # Frequently Asked Questions
 
+## Known issues:
+1, As the training progresses on an instance Malmo have the tendency to slow down. For a longer training resetting the environments at times can solve this issue.
+
+
 ## Common problems and potential solutions:
 
 1, **Wrong java installation**: The version of Minecraft used in Malmo only supports JAVA version 8. As the gradle build script uses the $JAVA_HOME variable it should also point to the correct version.
@@ -10,4 +14,4 @@
 
 4, **RLlib - RunTimeError: Error raised reading from queue**: Malmo runs a bit slower than what RLlib assumes with its default settings. Increasing the ```learner_queue_timeout``` parameter to the algorithm might solve this issue. The default parameter is set to 300 seconds.
 
-5, **BUS error**: Hardware related issue, could be not enough RAM to run Malmo.
+5, **BUS error**: Hardware related issue, could be not enough RAM to run Malmo. Note that the memory usage can increase over time with Malmo.
