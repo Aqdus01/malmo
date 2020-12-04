@@ -31,7 +31,10 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Microsoft/malmo",
-    install_requires=['gym', 'lxml', 'numpy', 'pillow'],
+    install_requires=['gym', 'lxml', 'numpy', 'pillow', 'opencv-python'],
+    extras_require={
+        "examples": ["ray", "ray[tune]", "ray[rllib]", "ffmpeg-python"]
+    },
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
