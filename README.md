@@ -24,6 +24,7 @@ MalmoEnv implements an Open AI "gym"-like environment in Python without any nati
 
 If you have any issues with running Malmo check the [FAQ](examples/FAQ.md) as it might cover the issues.
 
+## Examples
 This repository contains various improvements to the Malmo framework. This mainly involves the launcher to automatically handle the Malmo instances instead of the need to run them manually. We also updated the ```malmoenv``` python package to facilitate working with malmo. We also got some guides and examples to show how to work with Malmo in both single and multi-agent setups. The examples use RLlib, which provides a wide range of state-of-the-art Reinforcement Learning algorithms. In the examples we have created wrappers to make Malmo compatible to RLlib, but based on these examples it is easy to adapt Malmo to other frameworks.
 
 We provide some examples with explanations in the form of IPython notebooks that are ready to run after getting the dependencies installed.
