@@ -1,7 +1,6 @@
 import gym, os, sys, argparse
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from pathlib import Path
-import pickle
 
 # malmoenv imports
 import malmoenv
@@ -21,8 +20,6 @@ def create_env(config):
     env.init(xml, COMMAND_PORT + config.worker_index, reshape=True)
     env.reward_range = (-float('inf'), float('inf'))
 
-    # env = SymbolicObs(env)
-    # env = MultiEntrySymbolicObs(env)
     env = ScreenCapturer(env)
     env = DownsampleObs(env, shape=tuple((84, 84)))
     return env

@@ -9,15 +9,19 @@ Project Malmö is a platform for Artificial Intelligence experimentation and res
 
 MalmoEnv implements an Open AI "gym"-like environment in Python without any native code (communicating directly with Java Minecraft). This repository mainly uses this version of Malmo, if you prefer to use the old version we refer you to [this repository](https://github.com/microsoft/malmo).
 
-## Setup process 
-- 1, clone this repository (```git clone https://github.com/martinballa/malmo```)
-- 2, install java 8 and python 3. 
-- 3, ```cd malmo/``` and install malmo using pip ```pip install -e MalmoEnv/``` 
-- 4, You can test if Malmo works correctly by running the examples in the ```examples/``` directory.
-- 5 (optional), Some examples requires ```ray``` (with ```tune``` and ```rllib```) installed and ```ffmpeg-python```. 
-- 6 (optional), to run malmo headless on a linux headless server you should install xvfb ```sudo apt-get install -y xvfb```
-
+## Recommended setup process 
 *Note:* Minecraft uses gradle to build the project and it's not compatible with newer versions of Java, so make sure that you use java version 8 for the build and make sure that $JAVA_HOME is pointing to the correct version.
+- 1, install java version 8 and python 3. 
+- 2, clone this repository (```git clone https://github.com/martinballa/malmo```)
+- 3, upgrade pip ```pip install --upgrade pip```
+- 4, ```cd malmo/``` and install malmo using pip ```pip install -e MalmoEnv/```
+- 5, Test if your installation is correct by running ```examples/random_agent.py```
+
+## Optional to run examples (RLlib + FFMPEG installation)
+- 1, After the 4th step run ```pip install -e MalmoEnv/[examples]```
+- 2, You can test if Malmo works correctly by running the RLlib examples in the ```examples/``` directory.
+- 3, (Linux) To run malmo headless on a linux headless server install xvfb ```sudo apt-get install -y xvfb```
+
 If you have any issues with running Malmo check the [FAQ](examples/FAQ.md) as it might cover the issues.
 
 This repository contains various improvements to the Malmo framework. This mainly involves the launcher to automatically handle the Malmo instances instead of the need to run them manually. We also updated the ```malmoenv``` python package to facilitate working with malmo. We also got some guides and examples to show how to work with Malmo in both single and multi-agent setups. The examples use RLlib, which provides a wide range of state-of-the-art Reinforcement Learning algorithms. In the examples we have created wrappers to make Malmo compatible to RLlib, but based on these examples it is easy to adapt Malmo to other frameworks.

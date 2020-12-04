@@ -1,7 +1,6 @@
 import gym, os, sys, argparse
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from pathlib import Path
-from multiprocessing import cpu_count
 
 # malmoenv imports
 import malmoenv
@@ -39,18 +38,16 @@ if __name__ == "__main__":
     CHECKPOINT_FREQ = int(args.checkpoint_freq)
     LOG_DIR = args.log_dir
 
-    NUM_WORKERS = cpu_count() - 1#args.num_workers
+    NUM_WORKERS = args.num_workers
     NUM_GPUS = args.num_gpus
     TOTAL_STEPS = int(args.total_steps)
-    launch_script = "./launchClient_apocrita.sh"
+    launch_script = "./launchClient_quiet.sh"
 
     def create_env(config):
         env = malmoenv.make()
         env.init(xml, COMMAND_PORT + config.worker_index, reshape=True)
         env.reward_range = (-float('inf'), float('inf'))
 
-        # env = SymbolicObs(env)
-        # env = MultiEntrySymbolicObs(env)
         env = DownsampleObs(env, shape=tuple((84, 84)))
         return env
 

@@ -40,7 +40,7 @@ if __name__ == "__main__":
     NUM_WORKERS = args.num_workers
     NUM_GPUS = args.num_gpus
     TOTAL_STEPS = int(args.total_steps)
-    launch_script = "./launchClient_apocrita.sh"
+    launch_script = "./launchClient_quiet.sh"
 
     def env_factory(agent_id, xml, role, host_address, host_port, command_address, command_port):
         env = malmoenv.make()
@@ -66,7 +66,6 @@ if __name__ == "__main__":
         print(f"main port is {port} with secondary agent on {port+1}")
         env = TurnBasedRllibMultiAgentEnv(xml, agent_config,
                                           env_factory=env_factory,)
-        # env = SyncRllibMultiAgentEnv(env, idle_action=4)
         return env
 
     register_env(MULTI_AGENT_ENV, create_multi_agent_env)
