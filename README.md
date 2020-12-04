@@ -37,6 +37,7 @@ The notebooks go through the basics and we recommend to check them in the follow
 
 We also provided non-notebook versions of these guides, which contain less explanation, but might be more reusable in your projects.
 
+**QMUL Cluster:** in ```examples/job_scripts``` you can find 3 bash scripts that can be used to schedule jobs on the Apocrita cluster. The scripts assume that your python venv can be found under ```~/malmo/venv/```. To run a Single-agent example with 6 workers and 1 GPU just execute ```qsub run.sh``` once you logged into Apocrita.
 ----
 ## Baseline results
 **PPO Single-agent mobchase**
