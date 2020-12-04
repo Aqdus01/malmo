@@ -40,7 +40,7 @@ if __name__ == "__main__":
     NUM_WORKERS = args.num_workers
     NUM_GPUS = args.num_gpus
     TOTAL_STEPS = int(args.total_steps)
-    launch_script = "./launchClient_quiet.sh"
+    launch_script = "./launchClient_apocrita.sh"
 
     def env_factory(agent_id, xml, role, host_address, host_port, command_address, command_port):
         env = malmoenv.make()

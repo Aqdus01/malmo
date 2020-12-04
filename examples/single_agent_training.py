@@ -41,7 +41,7 @@ if __name__ == "__main__":
     NUM_WORKERS = args.num_workers
     NUM_GPUS = args.num_gpus
     TOTAL_STEPS = int(args.total_steps)
-    launch_script = "./launchClient_quiet.sh"
+    launch_script = "./launchClient_apocrita.sh"
 
     def create_env(config):
         env = malmoenv.make()

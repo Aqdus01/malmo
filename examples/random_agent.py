@@ -14,7 +14,7 @@ LOG_DIR = "results/"       # creates a new directory and puts results there
 NUM_WORKERS = 1
 NUM_GPUS = 0
 EPISODES = 10
-launch_script = "./launchClient_quiet.sh"
+launch_script = "./launchClient_apocrita.sh"
 
 config = {
     "xml": xml,
