@@ -47,7 +47,7 @@ We trained PPO in single and multi-agent setups on the Mob chases tasks. The ten
 ![Evaluation](examples/imgs/PPO_single_agent_mobchase.gif)
 
 **PPO Multi-agent mobchase**
-The multi-agent setup has been trained for a bit over 100k time steps per agent with shared parameters. A checkpoint from the 20th PPO iteration can be found in ```examples/checkpoints``` including the training stats from RLlib. The learning curves from this run are shown on the figure below:
+The multi-agent setup has been trained for a bit over 500k time steps per agent with shared parameters. A checkpoint from the 120th PPO iteration can be found in ```examples/checkpoints``` including the training stats from RLlib. The learning curves from this run are shown on the figure below:
 ![Multi-Agent PPO learning curves](examples/imgs/PPO_multi_agent_mobchase.png)
 
 ----
